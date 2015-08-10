@@ -1,0 +1,5 @@
+image: daocloud.io/jingstory/dockernotes
+
+script: 
+  - gitbook build
+

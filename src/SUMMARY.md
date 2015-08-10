@@ -1,6 +1,2 @@
-* [a](a.md)
- * [a.1](a/1.md)
-* [b](b.md)
- * [b.1](b/1.md)
- * [b.2](b/2.md)
-* [c](c.md)
+* [镜像](image.md)
+ * [命令](image/cmd.md)
