@@ -1,4 +1,8 @@
-image: daocloud.io/jingstory/dockernotes
+image: daocloud/ci-node:0.10
+
+install:
+  - npm install -g gitbook-cli
+  - gitbook install 2.2.0
 
 script: 
   - gitbook build
