@@ -5,5 +5,5 @@ install:
   - gitbook install 2.2.0
 
 script: 
-  - gitbook build
+  - cd src && gitbook build
 
