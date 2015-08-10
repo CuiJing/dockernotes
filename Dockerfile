@@ -15,6 +15,8 @@ RUN gitbook install 2.2.0
 COPY src /gitbook
 WORKDIR /gitbook
 
+RUN gitbook build
+
 EXPOSE 4000
 
 CMD ["gitbook", "serve", "/gitbook"]
