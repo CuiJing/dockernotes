@@ -12,7 +12,7 @@ yum --enablerepo=elrepo-kernel install kernel-lt -y
 
 
 ### 修改GRUB引导顺序
-打开文件`/boot/grub/grub.conf` 修改默认kernel序号：**default=0**（一般新安装的排在最前面)
+[GRUB][1]可以允许计算机在启动时选择希望运行的操作系统。打开文件`/boot/grub/grub.conf` 修改默认kernel序号：**default=0**（一般新安装的排在最前面)
 * 参考[Verifying the Boot Loader][1]
 
 
@@ -24,7 +24,8 @@ Linux iZ28125bfqqZ 3.10.85-1.el6.elrepo.x86_64 #1 SMP Tue Aug 4 13:23:52 EDT 201
 ```
 
 
-[1]: https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-kernel-boot-loader.html
+[1]: https://zh.wikipedia.org/wiki/GNU_GRUB
+[2]: https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-kernel-boot-loader.html
 
  
 
