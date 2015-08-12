@@ -1,4 +1,5 @@
 * [准备](prepare.md)
- * [CentOS](prepare/centeros.md)
+ * [OS:CentOS](prepare/centeros.md)
+ * [Docker:Install](prepare/install-docker.md)
 * [镜像](image.md)
  * [命令](image/cmd.md)
