@@ -15,6 +15,10 @@ yum --enablerepo=elrepo-kernel install kernel-lt -y
 [GRUB][1]可以允许计算机在启动时选择希望运行的操作系统。打开文件`/boot/grub/grub.conf` 修改默认kernel序号：**default=0**（一般新安装的排在最前面)
 * 参考[Verifying the Boot Loader][1]
 
+```
+sed 's/^default.*/default=0/g' /boot/grub/grub.conf -i
+```
+
 
 ### 重启机器
 检查内核版本

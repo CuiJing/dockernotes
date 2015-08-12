@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Wed Aug 12 2015 11:14:54 GMT+0800 (CST)">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="Wed Aug 12 2015 11:19:47 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -269,7 +269,8 @@ yum --enablerepo=elrepo-kernel install kernel-lt -y
 <ul>
 <li>&#x53C2;&#x8003;<a href="https://zh.wikipedia.org/wiki/GNU_GRUB" target="_blank">Verifying the Boot Loader</a></li>
 </ul>
-<h3 id="%E9%87%8D%E5%90%AF%E6%9C%BA%E5%99%A8">&#x91CD;&#x542F;&#x673A;&#x5668;</h3>
+<pre><code>sed &apos;s/^default.*/default=0/g&apos; /boot/grub/grub.conf -i
+</code></pre><h3 id="%E9%87%8D%E5%90%AF%E6%9C%BA%E5%99%A8">&#x91CD;&#x542F;&#x673A;&#x5668;</h3>
 <p>&#x68C0;&#x67E5;&#x5185;&#x6838;&#x7248;&#x672C;</p>
 <pre><code>[root@iZ28125bfqqZ ~]# uname  -a
 Linux iZ28125bfqqZ 3.10.85-1.el6.elrepo.x86_64 #1 SMP Tue Aug 4 13:23:52 EDT 2015 x86_64 x86_64 x86_64 GNU/Linux
