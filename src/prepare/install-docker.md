@@ -1,8 +1,6 @@
 # 安装文档
 
->> 
-* 如果OS内核版本过低，请先[升级内核][4]
-* 如果device-mapper 版本过低，请先[升级版本][3]
+>> 如果OS内核版本过低，请先[升级内核][4]
 
 ## **安装**
 
@@ -31,6 +29,7 @@ sudo sed -i "s|OPTIONS='|OPTIONS='--registry-mirror=http://0ec4f9c1.m.daocloud.i
 service docker start
 service docker status
 ```
+__如果device-mapper 版本过低，请先[升级版本][3]__
 
 
 * [Docker官方文档][1]
@@ -40,5 +39,5 @@ service docker status
 
 [1]: https://docs.docker.com/
 [2]: http://get.daocloud.io/#install-docker
-[3]: ../fqa.md#device-mapper
+[3]: ../faq.md#device-mapper
 [4]: centeros.md
