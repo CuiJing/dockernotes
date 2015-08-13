@@ -1,5 +1,6 @@
 # 常见问题
 
+<!-- toc -->
 
 ## device-mapper
 
@@ -73,8 +74,6 @@ sudo service docker restart
 
 
 
-[1]: https://dashboard.daocloud.io/mirror
-[2]: https://www.vultr.com/docs/setup-your-own-docker-registry-on-coreos
 
 [1]: http://docs.docker.io/reference/commandline/cli/#stop
 [2]: http://docs.docker.io/reference/commandline/cli/#kill

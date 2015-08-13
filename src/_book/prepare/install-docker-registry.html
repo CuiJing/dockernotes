@@ -1,0 +1,515 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>部署Registry | dockernotes</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.2.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/styles.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../image.html" />
+    
+    
+    <link rel="prev" href="../prepare/install-docker.html" />
+    
+
+        <script src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="1.4" data-basepath=".." data-revision="Thu Aug 13 2015 08:07:21 GMT+0000 (UTC)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="prepare.html">
+            
+                
+                    <a href="../prepare.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        准备
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="prepare/centeros.html">
+            
+                
+                    <a href="../prepare/centeros.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        配置CentOS
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="prepare/install-boot2docker.html">
+            
+                
+                    <a href="../prepare/install-boot2docker.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        安装Boot2Docker
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="prepare/install-docker.html">
+            
+                
+                    <a href="../prepare/install-docker.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        安装Docker
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="prepare/install-docker-registry.html">
+            
+                
+                    <a href="../prepare/install-docker-registry.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        部署Registry
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="image.html">
+            
+                
+                    <a href="../image.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        镜像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="image/cmd.html">
+            
+                
+                    <a href="../image/cmd.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        命令
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="faq.html">
+            
+                
+                    <a href="../faq.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        常见问题
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" >
+            
+            <span><b>4.</b> [最佳实践]</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="case/gitbook.html">
+            
+                
+                    <a href="../case/gitbook.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        gitbook
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >dockernotes</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="registry">Registry</h1>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x7BC7;<a href="https://www.vultr.com/docs/setup-your-own-docker-registry-on-coreos" target="_blank">&#x6587;&#x7AE0;</a>&#x8BE6;&#x7EC6;&#x8BB0;&#x5F55;&#x4E86;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF0C;&#x7B80;&#x5355;&#x603B;&#x7ED3;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h2 id="%E5%AE%89%E8%A3%85registry">&#x5B89;&#x88C5;registry</h2>
+<ul>
+<li><a href="install-docker.html">&#x5B89;&#x88C5;docker</a> </li>
+<li><a href="https://dashboard.daocloud.io/mirror" target="_blank">&#x5B89;&#x88C5;&#x52A0;&#x901F;&#x5668;</a></li>
+<li>&#x4E0B;&#x8F7D;registry&#x955C;&#x50CF;
+<code>docker pull registry</code></li>
+<li>&#x5C1D;&#x8BD5;&#x8FD0;&#x884C;registry&#x5BB9;&#x5668;</li>
+</ul>
+<pre><code># run &amp; test
+[root@ /home]
+#docker run -p 5000:5000 -d --name=basic_registry registry
+efd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
+
+[root@ /home]
+#curl 127.0.0.1:5000
+&quot;\&quot;docker-registry server\&quot;&quot;
+
+#  stop &amp; drop
+[root@8 /home]
+#docker  stop efd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
+dockefd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
+
+[root@8 /home]
+#docker rm efd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
+efd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
+</code></pre><ul>
+<li>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7F16;&#x5199;Dockerfile&#xFF0C;&#x751F;&#x6210;&#x65B0;&#x7684;&#x955C;&#x50CF;<code>docker build -t my_registry .</code></li>
+<li>&#x542F;&#x52A8;Redis</li>
+</ul>
+<pre><code>docker pull redis
+docker run -d --name registry-redis redis
+</code></pre><ul>
+<li>&#x542F;&#x52A8;Registry</li>
+</ul>
+<pre><code># &#x6620;&#x5C04;&#x672C;&#x5730;&#x8DEF;&#x5F84;
+mkdir -p /home/docker-registry-data
+
+# For a non-Redis cache registry
+docker run -d -p 5000:5000 -v /home/docker-registry-data:/data --name=private_reg my_registry
+
+# For a Redis cached registry (Must have followed Redis Caching section above)
+docker run -d -p 5000:5000 -v /home/docker-registry-data:/data --name=private_reg --link registry-redis:redis my_registry
+</code></pre><h2 id="%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8">&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;</h2>
+<ul>
+<li>&#x67E5;&#x770B;&#x955C;&#x50CF;</li>
+</ul>
+<pre><code>21:11:47[jcr].dockernotes/ $ docker images
+REPOSITORY                   TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+jcr/dockernotes              latest              7a919a84cad4        34 hours ago        748.9 MB
+&lt;none&gt;                       &lt;none&gt;              fb99cae5ec71        2 days ago          215.5 MB
+ubuntu                       latest              8251da35e7a7        4 days ago          188.4 MB
+hello-world                  latest              af340544ed62        5 days ago          960 B
+node                         latest              9e20baae42c8        5 days ago          641.6 MB
+tobegit3hub/gitbook-server   latest              fef658521110        8 days ago          862.1 MB
+nginx                        latest              6886fb5a9b8d        3 weeks ago         132.9 MB
+ubuntu                       14.10               dce38fb57986        4 weeks ago         194.5 MB
+</code></pre><ul>
+<li>&#x63A8;&#x9001;image&#x5230;registry</li>
+</ul>
+<pre><code>21:11:51[jcr].dockernotes/ $ docker tag jcr/dockernotes 1.2.3.4:5000/dockernodes
+21:12:37[jcr].dockernotes/ $ docker push 1.2.3.4:5000/dockernodes
+The push refers to a repository [1.2.3.4:5000/dockernodes] (len: 1)
+Sending image list
+Pushing repository 1.2.3.4:5000/dockernodes (1 tags)
+902b87aaaec9: Image successfully pushed
+9a61b6b1315e: Image successfully pushed
+1ff9f26f09fb: Image successfully pushed
+607e965985c1: Image successfully pushed
+9213e81cb0f2: Image successfully pushed
+6ad0799af6bd: Image successfully pushed
+e0919a8b95a8: Image successfully pushed
+3383909e8f95: Image successfully pushed
+8b74d7a75802: Image successfully pushed
+9e20baae42c8: Image successfully pushed
+1b3f134bba26: Image successfully pushed
+dacdf22d91db: Image successfully pushed
+e5db2f92004b: Image successfully pushed
+14f391f0328a: Image successfully pushed
+17d5584b7640: Image successfully pushed
+5fc64973886a: Image successfully pushed
+e017b808efeb: Image successfully pushed
+7a919a84cad4: Image successfully pushed
+Pushing tag for rev [7a919a84cad4] on {http://1.2.3.4:5000/v1/repositories/dockernodes/tags/latest}
+</code></pre><ul>
+<li>registry&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;</li>
+</ul>
+<pre><code>[root@8 /home/docker-registry-data]
+#tree
+.
+&#x251C;&#x2500;&#x2500; images
+&#x2502;   &#x251C;&#x2500;&#x2500; 1ff9f26f09fb1bc7b5955c269b1042429e86d7891c653f52f3e48f1e0365d7df
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; ancestry
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _checksum
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; json
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; layer
+&#x2502;   &#x251C;&#x2500;&#x2500; 607e965985c11e6a23270feec487908aeaa9af763d24a2986866a41537770c8c
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; ancestry
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _inprogress
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; json
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; layer
+&#x2502;   &#x251C;&#x2500;&#x2500; 902b87aaaec929e80541486828959f14fa061f529ad7f37ab300d4ef9f3a0dbf
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; ancestry
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; _checksum
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; json
+&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; layer
+&#x2502;   &#x2514;&#x2500;&#x2500; 9a61b6b1315e6b457c31a03346ab94486a2f5397f4a82219bee01eead1c34c2e
+&#x2502;       &#x251C;&#x2500;&#x2500; ancestry
+&#x2502;       &#x251C;&#x2500;&#x2500; _checksum
+&#x2502;       &#x251C;&#x2500;&#x2500; json
+&#x2502;       &#x2514;&#x2500;&#x2500; layer
+&#x2514;&#x2500;&#x2500; repositories
+    &#x2514;&#x2500;&#x2500; library
+        &#x2514;&#x2500;&#x2500; dockernodes
+            &#x2514;&#x2500;&#x2500; _index_images
+
+8 directories, 17 files
+</code></pre><blockquote>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;</p>
+<ul>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x51FA;&#x73B0;SSL&#x8BC1;&#x4E66;&#x95EE;&#x9898;&#xFF0C;<a href="../faq.html#registry-ssl">&#x89E3;&#x51B3;&#x529E;&#x6CD5;</a></li>
+</ul>
+</blockquote>
+</blockquote>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../prepare/install-docker.html" class="navigation navigation-prev " aria-label="Previous page: 安装Docker"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../image.html" class="navigation navigation-next " aria-label="Next page: 镜像"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/jquery-2.1.1.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/underscore-min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/sequence-diagram-min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"toc":{"addClass":true,"className":"toc"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

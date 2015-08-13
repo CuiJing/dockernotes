@@ -1,1 +1,9 @@
-{}
+{
+    "plugins": ["toc", "js-sequence-diagram"],
+    "pluginsConfig": {
+        "toc": {
+            "addClass": true,
+            "className": "toc"
+        }
+    }
+}

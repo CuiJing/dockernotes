@@ -3,11 +3,14 @@
 这里有一篇[文章][2]详细记录了整个过程，简单总结如下：
 
 
-1 [安装docker](prepare/install-docker.md) 
-1 [安装加速器][1]
-1 下载registry镜像
+## 安装registry
+
+* [安装docker](install-docker.md) 
+* [安装加速器][1]
+* 下载registry镜像
 ```docker pull registry```
-1 尝试运行registry容器
+* 尝试运行registry容器
+
 ```
 # run & test
 [root@ /home]
@@ -28,13 +31,15 @@ dockefd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
 efd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
 ```
 
-1 修改配置文件，编写Dockerfile，生成新的镜像`docker build -t my_registry .`
-1 启动Redis
+* 修改配置文件，编写Dockerfile，生成新的镜像`docker build -t my_registry .`
+* 启动Redis
+
 ```
 docker pull redis
 docker run -d --name registry-redis redis
 ```
-1 启动Registry
+* 启动Registry
+
 ```
 # 映射本地路径
 mkdir -p /home/docker-registry-data
@@ -50,6 +55,7 @@ docker run -d -p 5000:5000 -v /home/docker-registry-data:/data --name=private_re
 ## 客户端使用
 
 * 查看镜像
+
 ```
 21:11:47[jcr].dockernotes/ $ docker images
 REPOSITORY                   TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
@@ -64,6 +70,7 @@ ubuntu                       14.10               dce38fb57986        4 weeks ago
 ```
 
 * 推送image到registry
+
 ```
 21:11:51[jcr].dockernotes/ $ docker tag jcr/dockernotes 1.2.3.4:5000/dockernodes
 21:12:37[jcr].dockernotes/ $ docker push 1.2.3.4:5000/dockernodes
@@ -92,6 +99,7 @@ Pushing tag for rev [7a919a84cad4] on {http://1.2.3.4:5000/v1/repositories/docke
 ```
 
 * registry服务器的数据
+
 ```
 [root@8 /home/docker-registry-data]
 #tree
@@ -126,8 +134,13 @@ Pushing tag for rev [7a919a84cad4] on {http://1.2.3.4:5000/v1/repositories/docke
 ```
 
 >> 注意：
-* 客户端连接的时候会出现SSL证书问题，[解决办法][1]
+* 客户端连接的时候会出现SSL证书问题，[解决办法][3]
  
 
 
-[1]: faq.md#registry-ssl
+[1]: https://dashboard.daocloud.io/mirror
+[2]: https://www.vultr.com/docs/setup-your-own-docker-registry-on-coreos
+[3]: ../faq.md#registry-ssl
+
+
+

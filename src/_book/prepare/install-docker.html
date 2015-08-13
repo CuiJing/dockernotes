@@ -5,10 +5,10 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Docker:Install | dockernotes</title>
+        <title>安装Docker | dockernotes</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.1.0">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -20,23 +20,27 @@
         
     <link rel="stylesheet" href="../gitbook/style.css">
     
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/styles.css">
+        
+    
     
 
         
     
     
-    <link rel="next" href="../image.html" />
+    <link rel="next" href="../prepare/install-docker-registry.html" />
     
     
-    <link rel="prev" href="../prepare/centeros.html" />
+    <link rel="prev" href="../prepare/install-boot2docker.html" />
     
 
-        
+        <script src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
     </head>
     <body>
         
         
-    <div class="book" data-level="1.2" data-basepath=".." data-revision="Wed Aug 12 2015 11:29:52 GMT+0800 (CST)">
+    <div class="book" data-level="1.3" data-basepath=".." data-revision="Thu Aug 13 2015 08:07:21 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -57,11 +61,11 @@
             
                 
                     <a href="../index.html">
+                
                         <i class="fa fa-check"></i>
                         
                         Introduction
                     </a>
-                
             
             
         </li>
@@ -70,13 +74,13 @@
             
                 
                     <a href="../prepare.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
                         
                         准备
                     </a>
-                
             
             
             <ul class="articles">
@@ -86,28 +90,58 @@
             
                 
                     <a href="../prepare/centeros.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.1.</b>
                         
-                        OS:CentOS
+                        配置CentOS
                     </a>
-                
             
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="prepare/install-docker.html">
+        <li class="chapter " data-level="1.2" data-path="prepare/install-boot2docker.html">
             
                 
-                    <a href="../prepare/install-docker.html">
+                    <a href="../prepare/install-boot2docker.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.2.</b>
                         
-                        Docker:Install
+                        安装Boot2Docker
                     </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="prepare/install-docker.html">
+            
                 
+                    <a href="../prepare/install-docker.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        安装Docker
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="prepare/install-docker-registry.html">
+            
+                
+                    <a href="../prepare/install-docker-registry.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        部署Registry
+                    </a>
             
             
         </li>
@@ -121,13 +155,13 @@
             
                 
                     <a href="../image.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>2.</b>
                         
                         镜像
                     </a>
-                
             
             
             <ul class="articles">
@@ -137,13 +171,56 @@
             
                 
                     <a href="../image/cmd.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>2.1.</b>
                         
                         命令
                     </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="faq.html">
+            
                 
+                    <a href="../faq.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        常见问题
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" >
+            
+            <span><b>4.</b> [最佳实践]</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="case/gitbook.html">
+            
+                
+                    <a href="../case/gitbook.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        gitbook
+                    </a>
             
             
         </li>
@@ -260,7 +337,9 @@
                     
                         <h1 id="docker-install">Docker:Install</h1>
 <h2 id="%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3">&#x5B89;&#x88C5;&#x6587;&#x6863;</h2>
-<ul>
+<pre><code>curl -sSL https://get.daocloud.io/docker | sh
+service docker start
+</code></pre><ul>
 <li><a href="https://docs.docker.com/" target="_blank">Docker&#x5B98;&#x65B9;&#x6587;&#x6863;</a></li>
 <li><a href="http://get.daocloud.io/#install-docker" target="_blank">DaoCloud&#x63D0;&#x4F9B;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;</a></li>
 </ul>
@@ -274,10 +353,10 @@
         </div>
 
         
-        <a href="../prepare/centeros.html" class="navigation navigation-prev " aria-label="Previous page: OS:CentOS"><i class="fa fa-angle-left"></i></a>
+        <a href="../prepare/install-boot2docker.html" class="navigation navigation-prev " aria-label="Previous page: 安装Boot2Docker"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../image.html" class="navigation navigation-next " aria-label="Next page: 镜像"><i class="fa fa-angle-right"></i></a>
+        <a href="../prepare/install-docker-registry.html" class="navigation navigation-next " aria-label="Next page: 部署Registry"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
@@ -285,9 +364,29 @@
         
 <script src="../gitbook/app.js"></script>
 
+    
+    <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/jquery-2.1.1.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/underscore-min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/sequence-diagram-min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"toc":{"addClass":true,"className":"toc"}};
     gitbook.start(config);
 });
 </script>
