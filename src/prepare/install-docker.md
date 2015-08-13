@@ -1,6 +1,6 @@
 # 安装文档
 
->> 如果OS内核版本过低，请先[升级内核][4]
+> 如果OS内核版本过低，请先[升级内核][4]
 
 ## **安装**
 
@@ -29,7 +29,7 @@ sudo sed -i "s|OPTIONS='|OPTIONS='--registry-mirror=http://0ec4f9c1.m.daocloud.i
 service docker start
 service docker status
 ```
-__如果device-mapper 版本过低，请先[升级版本][3]__
+_如果device-mapper 版本过低，请先[升级版本][3]_
 
 
 * [Docker官方文档][1]
