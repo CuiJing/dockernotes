@@ -72,10 +72,24 @@ sudo service docker restart
 
 
 
+## registry-mirror
+为了提高镜像的下载速度，使用国内DaoCloud提供的[加速器][4]，Powered by UCloud & 七牛云存储 | [配置文档][4]
+```
+# Mac
+boot2docker up
+boot2docker ssh "echo $'EXTRA_ARGS=\"--registry-mirror=http://0ec4f9c1.m.daocloud.io\"' | sudo tee -a /var/lib/boot2docker/profile && sudo /etc/init.d/docker restart"
+
+# CentOS 6
+sudo sed -i "s|other_args=\"|other_args=\"--registry-mirror=http://0ec4f9c1.m.daocloud.io |g" /etc/sysconfig/docker
+sudo sed -i "s|OPTIONS='|OPTIONS='--registry-mirror=http://0ec4f9c1.m.daocloud.io |g" /etc/sysconfig/docker
+sudo service docker restart
+```
 
 
 
 [1]: http://docs.docker.io/reference/commandline/cli/#stop
 [2]: http://docs.docker.io/reference/commandline/cli/#kill
 [3]: http://superuser.com/questions/756999/whats-the-difference-between-docker-stop-and-docker-kill
+[4]: https://dashboard.daocloud.io/mirror
+[5]: http://help.daocloud.io/intro/accelerator.html
 

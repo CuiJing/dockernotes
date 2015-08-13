@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="3" data-basepath="." data-revision="Thu Aug 13 2015 08:07:21 GMT+0000 (UTC)">
+    <div class="book" data-level="3" data-basepath="." data-revision="Thu Aug 13 2015 11:31:47 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -342,6 +342,7 @@
 <li><a href="#docker0">docker0</a></li>
 <li><a href="#docker-kill">docker-kill</a></li>
 <li><a href="#registry-ssl">registry-ssl</a></li>
+<li><a href="#registry-mirror">registry-mirror</a></li>
 </ul>
 <!-- toc stop -->
 <h2 id="device-mapper">device-mapper</h2>
@@ -385,6 +386,16 @@ boot2docker ssh &quot;echo $&apos;EXTRA_ARGS=\&quot;--insecure-registry 100.82.2
 # CentOS6
 sudo sed -i &quot;s|other_args=\&quot;|other_args=\&quot;--insecure-registry 100.82.23.8:5000 |g&quot; /etc/sysconfig/docker
 sudo sed -i &quot;s|OPTIONS=&apos;|OPTIONS=&apos;--insecure-registry 100.82.23.8:5000 |g&quot; /etc/sysconfig/docker
+sudo service docker restart
+</code></pre><h2 id="registry-mirror">registry-mirror</h2>
+<p>&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x955C;&#x50CF;&#x7684;&#x4E0B;&#x8F7D;&#x901F;&#x5EA6;&#xFF0C;&#x4F7F;&#x7528;&#x56FD;&#x5185;DaoCloud&#x63D0;&#x4F9B;&#x7684;<a href="https://dashboard.daocloud.io/mirror" target="_blank">&#x52A0;&#x901F;&#x5668;</a>&#xFF0C;Powered by UCloud &amp; &#x4E03;&#x725B;&#x4E91;&#x5B58;&#x50A8; | <a href="https://dashboard.daocloud.io/mirror" target="_blank">&#x914D;&#x7F6E;&#x6587;&#x6863;</a></p>
+<pre><code># Mac
+boot2docker up
+boot2docker ssh &quot;echo $&apos;EXTRA_ARGS=\&quot;--registry-mirror=http://0ec4f9c1.m.daocloud.io\&quot;&apos; | sudo tee -a /var/lib/boot2docker/profile &amp;&amp; sudo /etc/init.d/docker restart&quot;
+
+# CentOS 6
+sudo sed -i &quot;s|other_args=\&quot;|other_args=\&quot;--registry-mirror=http://0ec4f9c1.m.daocloud.io |g&quot; /etc/sysconfig/docker
+sudo sed -i &quot;s|OPTIONS=&apos;|OPTIONS=&apos;--registry-mirror=http://0ec4f9c1.m.daocloud.io |g&quot; /etc/sysconfig/docker
 sudo service docker restart
 </code></pre>
                     
