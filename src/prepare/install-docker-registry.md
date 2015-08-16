@@ -32,6 +32,7 @@ efd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
 ```
 
 * 修改配置文件，编写Dockerfile，生成新的镜像`docker build -t my_registry .`
+
 * 启动Redis
 
 ```
@@ -44,8 +45,8 @@ docker run -d --name registry-redis redis
 # 映射本地路径
 mkdir -p /home/docker-registry-data
 
-# For a non-Redis cache registry
-docker run -d -p 5000:5000 -v /home/docker-registry-data:/data --name=private_reg my_registry
+# For a non-Redis cache registry,
+docker run -d -p 5000:5000 -v /home/docker-registry-data:/tmp/registry --name=local_registry registry
 
 # For a Redis cached registry (Must have followed Redis Caching section above)
 docker run -d -p 5000:5000 -v /home/docker-registry-data:/data --name=private_reg --link registry-redis:redis my_registry

@@ -85,6 +85,14 @@ sudo sed -i "s|OPTIONS='|OPTIONS='--registry-mirror=http://0ec4f9c1.m.daocloud.i
 sudo service docker restart
 ```
 
+## boot2docker-DNS
+Mac的上网环境如果发生变化，DNS配置变更后，需要同步修改boot2docker，否则就会出现如下错误:
+```
+22:08:43[jcr].docker-compose-demo/ $ docker pull python:2.7
+Pulling repository python
+Get https://index.docker.io/v1/repositories/library/python/images: dial tcp: lookup index.docker.io on 10.0.2.3:53: too many redirects
+```
+
 
 
 [1]: http://docs.docker.io/reference/commandline/cli/#stop

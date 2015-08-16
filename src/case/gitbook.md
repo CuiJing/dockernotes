@@ -20,7 +20,7 @@ docker pull tobegit3hub/gitbook-server
 
 ```
 #进入项目代码目录
-cd dockernote
+cd dockernote/src
 
 docker run -ti -d -v `pwd`:/gitbook -p 4000:4000 --name mygitbook  tobegit3hub/gitbook-server
 ```
