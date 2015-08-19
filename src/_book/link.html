@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>准备 | dockernotes</title>
+        <title>Link | dockernotes</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="./prepare/centeros.html" />
+    <link rel="next" href="./faq.html" />
     
     
-    <link rel="prev" href="./index.html" />
+    <link rel="prev" href="./image/cmd.html" />
     
 
         <script src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="1" data-basepath="." data-revision="Tue Aug 18 2015 09:52:25 GMT+0000 (UTC)">
+    <div class="book" data-level="3" data-basepath="." data-revision="Tue Aug 18 2015 09:52:25 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -70,7 +70,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1" data-path="prepare.html">
+        <li class="chapter " data-level="1" data-path="prepare.html">
             
                 
                     <a href="./prepare.html">
@@ -187,7 +187,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3" data-path="link.html">
+        <li class="chapter active" data-level="3" data-path="link.html">
             
                 
                     <a href="./link.html">
@@ -358,8 +358,88 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E5%87%86%E5%A4%87">&#x51C6;&#x5907;</h1>
+                        <h1 id="link">Link</h1>
+<ul>
+<li>&#x542F;&#x52A8;&#x4E00;&#x4E2A;mysql&#x5BB9;&#x5668;&#xFF0C;&#x540D;&#x5B57;&#x53EB;<a href="case.html#mysql">my_mysql</a></li>
+<li>&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x65B0;&#x5BB9;&#x5668;my_app&#xFF0C;&#x5E76;&#x4E14;&#x52A0;&#x4E00;&#x4E2A;&#x5230;mysql&#x7684;link&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x65B0;&#x5BB9;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;mysql&#x4E86;</li>
+</ul>
+<p>&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x6F14;&#x793A;&#xFF0C;&#x540C;&#x6837;&#x4F7F;&#x7528;mysql&#x955C;&#x50CF;&#x542F;&#x52A8;&#x65B0;&#x5BB9;&#x5668;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#x662F;<code>/bin/bash</code>:
+<strong><code>docker  run -ti --rm --name=my_app --link=my_mysql mysql /bin/bash</code></strong></p>
+<ul>
+<li>&#x5728;my_app&#x4E2D;&#xFF0C; my_mysql&#x5BB9;&#x5668;&#x7684;ENV&#x4FE1;&#x606F;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x5728;&#x4E86;&#x5BB9;&#x5668;my_app&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;</li>
+</ul>
+<pre><code>[root@7 /root]
+#docker  run -ti --rm --name=my_app --link=my_mysql mysql /bin/bash
+root@2ec09fab7e77:/# env
+HOSTNAME=2ec09fab7e77
+TERM=xterm
+MYSQL_VERSION=5.6.26
+MY_MYSQL_NAME=/romantic_sammet/my_mysql
+MY_MYSQL_ENV_MYSQL_MAJOR=5.6
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MY_MYSQL_PORT=tcp://192.168.42.16:3306
+PWD=/
+MY_MYSQL_PORT_3306_TCP_PORT=3306
+MY_MYSQL_PORT_3306_TCP_ADDR=192.168.42.16
+MY_MYSQL_PORT_3306_TCP=tcp://192.168.42.16:3306
+MY_MYSQL_PORT_3306_TCP_PROTO=tcp
+HOME=/root
+SHLVL=1
+MY_MYSQL_ENV_MYSQL_VERSION=5.6.26
+MYSQL_MAJOR=5.6
+MY_MYSQL_ENV_MYSQL_ROOT_PASSWORD=123456
+_=/usr/bin/env
+root@2ec09fab7e77:/#
+</code></pre><ul>
+<li>my_mysql&#x7684;IP&#x4E5F;&#x5DF2;&#x7ECF;&#x52A0;&#x5165;&#x5230;/etc/hosts&#x6587;&#x4EF6;&#x4E2D;</li>
+</ul>
+<pre><code>root@2ec09fab7e77:/# cat /etc/hosts
+192.168.42.40    2ec09fab7e77
+127.0.0.1    localhost
+::1    localhost ip6-localhost ip6-loopback
+fe00::0    ip6-localnet
+ff00::0    ip6-mcastprefix
+ff02::1    ip6-allnodes
+ff02::2    ip6-allrouters
+192.168.42.16    my_mysql a3504af7e69e
+</code></pre><ul>
+<li>&#x5728;my_app&#x4E2D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>ping my_mysql</code>&#x68C0;&#x67E5;&#x8FDE;&#x901A;&#x6027;,&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;mysql&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;<strong><code>mysql -hmy_mysql -uroot -p123456</code></strong></li>
+</ul>
+<pre><code>root@2ec09fab7e77:/# ping my_mysql
+PING my_mysql (192.168.42.16): 48 data bytes
+56 bytes from 192.168.42.16: icmp_seq=0 ttl=64 time=0.157 ms
+56 bytes from 192.168.42.16: icmp_seq=1 ttl=64 time=0.060 ms
+^C--- my_mysql ping statistics ---
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 0.060/0.108/0.157/0.049 ms
+root@2ec09fab7e77:/# mysql -hmy_mysql -uroot -p123456
+Warning: Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.6.26 MySQL Community Server (GPL)
 
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.
+
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| t                  |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql&gt; ^DBye
+root@2ec09fab7e77:/#
+</code></pre>
                     
                     </section>
                 
@@ -369,10 +449,10 @@
         </div>
 
         
-        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        <a href="./image/cmd.html" class="navigation navigation-prev " aria-label="Previous page: 命令"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./prepare/centeros.html" class="navigation navigation-next " aria-label="Next page: 配置CentOS"><i class="fa fa-angle-right"></i></a>
+        <a href="./faq.html" class="navigation navigation-next " aria-label="Next page: 常见问题"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

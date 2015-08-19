@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="1.4" data-basepath=".." data-revision="Sun Aug 16 2015 13:12:42 GMT+0000 (UTC)">
+    <div class="book" data-level="1.4" data-basepath=".." data-revision="Tue Aug 18 2015 09:52:25 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -187,14 +187,29 @@
             
         </li>
     
-        <li class="chapter " data-level="3" data-path="faq.html">
+        <li class="chapter " data-level="3" data-path="link.html">
+            
+                
+                    <a href="../link.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Link
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="faq.html">
             
                 
                     <a href="../faq.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>3.</b>
+                            <b>4.</b>
                         
                         常见问题
                     </a>
@@ -202,22 +217,30 @@
             
         </li>
     
-        <li class="chapter " data-level="4" >
+        <li class="chapter " data-level="5" data-path="case.html">
             
-            <span><b>4.</b> [最佳实践]</span>
+                
+                    <a href="../case.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        最佳实践
+                    </a>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1" data-path="case/gitbook.html">
+        <li class="chapter " data-level="5.1" data-path="case/gitbook.html">
             
                 
                     <a href="../case/gitbook.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.1.</b>
+                            <b>5.1.</b>
                         
                         gitbook
                     </a>
@@ -363,8 +386,10 @@ dockefd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
 #docker rm efd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
 efd8b763f02f63bb64cf5e2a41bf714017db801777eed0238cc39959bddf30a0
 </code></pre><ul>
-<li>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7F16;&#x5199;Dockerfile&#xFF0C;&#x751F;&#x6210;&#x65B0;&#x7684;&#x955C;&#x50CF;<code>docker build -t my_registry .</code></li>
-<li>&#x542F;&#x52A8;Redis</li>
+<li><p>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7F16;&#x5199;Dockerfile&#xFF0C;&#x751F;&#x6210;&#x65B0;&#x7684;&#x955C;&#x50CF;<code>docker build -t my_registry .</code></p>
+</li>
+<li><p>&#x542F;&#x52A8;Redis</p>
+</li>
 </ul>
 <pre><code>docker pull redis
 docker run -d --name registry-redis redis
@@ -374,8 +399,8 @@ docker run -d --name registry-redis redis
 <pre><code># &#x6620;&#x5C04;&#x672C;&#x5730;&#x8DEF;&#x5F84;
 mkdir -p /home/docker-registry-data
 
-# For a non-Redis cache registry
-docker run -d -p 5000:5000 -v /home/docker-registry-data:/data --name=private_reg my_registry
+# For a non-Redis cache registry,
+docker run -d -p 5000:5000 -v /home/docker-registry-data:/tmp/registry --name=local_registry registry
 
 # For a Redis cached registry (Must have followed Redis Caching section above)
 docker run -d -p 5000:5000 -v /home/docker-registry-data:/data --name=private_reg --link registry-redis:redis my_registry

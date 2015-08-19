@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="./case/gitbook.html" />
+    <link rel="next" href="./case.html" />
     
     
-    <link rel="prev" href="./image/cmd.html" />
+    <link rel="prev" href="./link.html" />
     
 
         <script src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="3" data-basepath="." data-revision="Sun Aug 16 2015 13:12:42 GMT+0000 (UTC)">
+    <div class="book" data-level="4" data-basepath="." data-revision="Tue Aug 18 2015 09:52:25 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -187,14 +187,29 @@
             
         </li>
     
-        <li class="chapter active" data-level="3" data-path="faq.html">
+        <li class="chapter " data-level="3" data-path="link.html">
+            
+                
+                    <a href="./link.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Link
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4" data-path="faq.html">
             
                 
                     <a href="./faq.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>3.</b>
+                            <b>4.</b>
                         
                         常见问题
                     </a>
@@ -202,22 +217,30 @@
             
         </li>
     
-        <li class="chapter " data-level="4" >
+        <li class="chapter " data-level="5" data-path="case.html">
             
-            <span><b>4.</b> [最佳实践]</span>
+                
+                    <a href="./case.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        最佳实践
+                    </a>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1" data-path="case/gitbook.html">
+        <li class="chapter " data-level="5.1" data-path="case/gitbook.html">
             
                 
                     <a href="./case/gitbook.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.1.</b>
+                            <b>5.1.</b>
                         
                         gitbook
                     </a>
@@ -343,6 +366,7 @@
 <li><a href="#docker-kill">docker-kill</a></li>
 <li><a href="#registry-ssl">registry-ssl</a></li>
 <li><a href="#registry-mirror">registry-mirror</a></li>
+<li><a href="#boot2docker-dns">boot2docker-DNS</a></li>
 </ul>
 <!-- toc stop -->
 <h2 id="device-mapper">device-mapper</h2>
@@ -397,6 +421,11 @@ boot2docker ssh &quot;echo $&apos;EXTRA_ARGS=\&quot;--registry-mirror=http://0ec
 sudo sed -i &quot;s|other_args=\&quot;|other_args=\&quot;--registry-mirror=http://0ec4f9c1.m.daocloud.io |g&quot; /etc/sysconfig/docker
 sudo sed -i &quot;s|OPTIONS=&apos;|OPTIONS=&apos;--registry-mirror=http://0ec4f9c1.m.daocloud.io |g&quot; /etc/sysconfig/docker
 sudo service docker restart
+</code></pre><h2 id="boot2docker-dns">boot2docker-DNS</h2>
+<p>Mac&#x7684;&#x4E0A;&#x7F51;&#x73AF;&#x5883;&#x5982;&#x679C;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;DNS&#x914D;&#x7F6E;&#x53D8;&#x66F4;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x540C;&#x6B65;&#x4FEE;&#x6539;boot2docker&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x9519;&#x8BEF;:</p>
+<pre><code>22:08:43[jcr].docker-compose-demo/ $ docker pull python:2.7
+Pulling repository python
+Get https://index.docker.io/v1/repositories/library/python/images: dial tcp: lookup index.docker.io on 10.0.2.3:53: too many redirects
 </code></pre>
                     
                     </section>
@@ -407,10 +436,10 @@ sudo service docker restart
         </div>
 
         
-        <a href="./image/cmd.html" class="navigation navigation-prev " aria-label="Previous page: 命令"><i class="fa fa-angle-left"></i></a>
+        <a href="./link.html" class="navigation navigation-prev " aria-label="Previous page: Link"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./case/gitbook.html" class="navigation navigation-next " aria-label="Next page: gitbook"><i class="fa fa-angle-right"></i></a>
+        <a href="./case.html" class="navigation navigation-next " aria-label="Next page: 最佳实践"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -3,9 +3,11 @@
  * [安装Boot2Docker](prepare/install-boot2docker.md)
  * [安装Docker](prepare/install-docker.md)
  * [部署Registry](prepare/install-docker-registry.md)
+ * [配置加速器](prepare/install-mirror.md)
 * [镜像](image.md)
  * [命令](image/cmd.md)
+* [Link](link.md)
 
 * [常见问题](faq.md)
-* [最佳实践]
+* [最佳实践](case.md)
  * [gitbook](case/gitbook.md)

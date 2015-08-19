@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>准备 | dockernotes</title>
+        <title>最佳实践 | dockernotes</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -29,10 +29,10 @@
         
     
     
-    <link rel="next" href="./prepare/centeros.html" />
+    <link rel="next" href="./case/gitbook.html" />
     
     
-    <link rel="prev" href="./index.html" />
+    <link rel="prev" href="./faq.html" />
     
 
         <script src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="1" data-basepath="." data-revision="Tue Aug 18 2015 09:52:25 GMT+0000 (UTC)">
+    <div class="book" data-level="5" data-basepath="." data-revision="Tue Aug 18 2015 09:52:25 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -70,7 +70,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1" data-path="prepare.html">
+        <li class="chapter " data-level="1" data-path="prepare.html">
             
                 
                     <a href="./prepare.html">
@@ -217,7 +217,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5" data-path="case.html">
+        <li class="chapter active" data-level="5" data-path="case.html">
             
                 
                     <a href="./case.html">
@@ -358,7 +358,32 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E5%87%86%E5%A4%87">&#x51C6;&#x5907;</h1>
+                        <h1 id="%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</h1>
+<h2 id="mysql">MySQL</h2>
+<p><a href="https://github.com/docker-library/mysql/blob/master/5.6/Dockerfile" target="_blank">Dockerfile</a></p>
+<ul>
+<li>&#x62C9;&#x53D6;&#x955C;&#x50CF;&#xFF0C;&#x521B;&#x5EFA;mysql&#x6570;&#x636E;&#x76EE;&#x5F55;</li>
+<li>&#x542F;&#x52A8;&#x5BB9;&#x5668;&#xFF0C;&#x6302;&#x8F7D;&#x6570;&#x636E;&#x76EE;&#x5F55;&#xFF0C; &#x6307;&#x5B9A;root&#x5BC6;&#x7801;&#xFF0C;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;3306&#x6620;&#x5C04;&#x7B49;<pre><code>docker pull mysql
+mkdir -p /home/docker-mysql/ 
+docker  run -d --name=my_mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -v /home/docker-mysql:/var/lib/mysql mysql
+</code></pre></li>
+</ul>
+<h2 id="docker-registry">Docker-Registry</h2>
+<ul>
+<li>&#x62C9;&#x53D6;&#x955C;&#x50CF;&#xFF0C;&#x521B;&#x5EFA;&#x955C;&#x50CF;&#x76EE;&#x5F55;</li>
+<li>&#x542F;&#x52A8;&#x5BB9;&#x5668;&#xFF0C;&#x6302;&#x8F7D;&#x955C;&#x50CF;&#x76EE;&#x5F55;&#xFF0C;&#x6307;&#x5B9A;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#xFF0C;&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#x7B49;<pre><code>docker pull registry
+mkdir -p /home/docker-registry-data
+docker run -d -e SETTINGS_FLAVOR=local -e SEARCH_BACKEND=sqlalchemy -e LOGLEVEL=DEBUG -p 80:5000 -v /home/docker-registry-data:/tmp/registry  --name=my_registry registry
+</code></pre></li>
+</ul>
+<h2 id="dockerfile-from-image">Dockerfile-from-image</h2>
+<p>&#x5F80;&#x5F80;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x955C;&#x50CF;&#x4E4B;&#x540E;&#xFF0C;&#x60F3;&#x77E5;&#x9053;&#x4ED6;&#x7684;Dockerfile&#x662F;&#x600E;&#x4E48;&#x5199;&#x7684;&#xFF0C;&#x53BB;&#x627E;github&#x4E0A;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x4E00;&#x79CD;&#x529E;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x2014;&#x2014;&#x76F4;&#x63A5;&#x4ECE;&#x955C;&#x50CF;&#x4E2D;&#x8BFB;&#x53D6;<br>&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x4ECE;&#x955C;&#x50CF;&#x7684;Config&#x4E2D;&#x8BFB;&#x53D6;&#x5305;&#x542B;&#x7684;&#x547D;&#x4EE4;&#x3001;&#x7AEF;&#x53E3;&#x3001;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7B49;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;build&#x65F6;&#x7528;&#x5230;&#x7684;Dockerfile
+&#x9879;&#x76EE;&#x4ECB;&#x7ECD; <a href="https://github.com/CenturyLinkLabs/dockerfile-from-image" target="_blank">github</a></p>
+<ul>
+<li>&#x6307;&#x5B9A;docker daemon&#x7684;sock&#x6587;&#x4EF6;&#xFF0C;&#x542F;&#x52A8;&#x5BB9;&#x5668;&#xFF0C;&#x6307;&#x5B9A;&#x955C;&#x50CF;<pre><code>docker pull centurylink/dockerfile-from-image
+docker run -v /var/run/docker.sock:/var/run/docker.sock centurylink/dockerfile-from-image mysql
+</code></pre></li>
+</ul>
 
                     
                     </section>
@@ -369,10 +394,10 @@
         </div>
 
         
-        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        <a href="./faq.html" class="navigation navigation-prev " aria-label="Previous page: 常见问题"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./prepare/centeros.html" class="navigation navigation-next " aria-label="Next page: 配置CentOS"><i class="fa fa-angle-right"></i></a>
+        <a href="./case/gitbook.html" class="navigation navigation-next " aria-label="Next page: gitbook"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
