@@ -32,6 +32,13 @@ docker pull centurylink/dockerfile-from-image
 docker run -v /var/run/docker.sock:/var/run/docker.sock centurylink/dockerfile-from-image mysql
 ```
 
+## DockerUI
+通过Docker API对Docker Server管理的一个Web UI
+可以连接一个Docker Server（通过UnixSocket或TCP），也可以连接一个Swarm Manager（TCP）
+```
+docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock --name=dockerui03 100.82.23.8/dockerui/dockerui
+docker run -d -p 9000:9000 --privileged --name=dockerui 100.82.23.8/dockerui/dockerui  -e http://10.14.40.112:2376
+```
 
 
 

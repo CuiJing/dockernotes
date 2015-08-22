@@ -2,7 +2,7 @@
 您的免费加速器:
 使用加速器将会提升您在国内获取Docker官方镜像的速度
 
-http://jingstory.m.alauda.cn
+`http://jingstory.m.alauda.cn`
 
 如何使用:
 
