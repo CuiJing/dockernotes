@@ -5,10 +5,10 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>最佳实践 | dockernotes</title>
+        <title>小记 | dockernotes</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.2.0">
+        <meta name="generator" content="GitBook 2.1.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="5" data-basepath="." data-revision="Tue Aug 18 2015 09:52:25 GMT+0000 (UTC)">
+    <div class="book" data-level="5" data-basepath="." data-revision="Mon Sep 07 2015 13:14:14 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -61,11 +61,11 @@
             
                 
                     <a href="./index.html">
-                
                         <i class="fa fa-check"></i>
                         
                         Introduction
                     </a>
+                
             
             
         </li>
@@ -74,13 +74,13 @@
             
                 
                     <a href="./prepare.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
                         
                         准备
                     </a>
+                
             
             
             <ul class="articles">
@@ -90,13 +90,13 @@
             
                 
                     <a href="./prepare/centeros.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.1.</b>
                         
                         配置CentOS
                     </a>
+                
             
             
         </li>
@@ -105,13 +105,13 @@
             
                 
                     <a href="./prepare/install-boot2docker.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.2.</b>
                         
                         安装Boot2Docker
                     </a>
+                
             
             
         </li>
@@ -120,13 +120,13 @@
             
                 
                     <a href="./prepare/install-docker.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.3.</b>
                         
                         安装Docker
                     </a>
+                
             
             
         </li>
@@ -135,13 +135,28 @@
             
                 
                     <a href="./prepare/install-docker-registry.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.4.</b>
                         
                         部署Registry
                     </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="prepare/install-mirror.html">
+            
+                
+                    <a href="./prepare/install-mirror.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        配置加速器
+                    </a>
+                
             
             
         </li>
@@ -155,13 +170,13 @@
             
                 
                     <a href="./image.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>2.</b>
                         
                         镜像
                     </a>
+                
             
             
             <ul class="articles">
@@ -171,13 +186,13 @@
             
                 
                     <a href="./image/cmd.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>2.1.</b>
                         
                         命令
                     </a>
+                
             
             
         </li>
@@ -191,13 +206,13 @@
             
                 
                     <a href="./link.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>3.</b>
                         
                         Link
                     </a>
+                
             
             
         </li>
@@ -206,13 +221,13 @@
             
                 
                     <a href="./faq.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>4.</b>
                         
                         常见问题
                     </a>
+                
             
             
         </li>
@@ -221,13 +236,13 @@
             
                 
                     <a href="./case.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>5.</b>
                         
-                        最佳实践
+                        小记
                     </a>
+                
             
             
             <ul class="articles">
@@ -237,13 +252,43 @@
             
                 
                     <a href="./case/gitbook.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>5.1.</b>
                         
                         gitbook
                     </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="case/mesos.html">
+            
+                
+                    <a href="./case/mesos.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        mesos
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="case/swarm.html">
+            
+                
+                    <a href="./case/swarm.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        swarm
+                    </a>
+                
             
             
         </li>
@@ -384,7 +429,12 @@ docker run -d -e SETTINGS_FLAVOR=local -e SEARCH_BACKEND=sqlalchemy -e LOGLEVEL=
 docker run -v /var/run/docker.sock:/var/run/docker.sock centurylink/dockerfile-from-image mysql
 </code></pre></li>
 </ul>
-
+<h2 id="dockerui">DockerUI</h2>
+<p>&#x901A;&#x8FC7;Docker API&#x5BF9;Docker Server&#x7BA1;&#x7406;&#x7684;&#x4E00;&#x4E2A;Web UI
+&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x4E00;&#x4E2A;Docker Server&#xFF08;&#x901A;&#x8FC7;UnixSocket&#x6216;TCP&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x4E00;&#x4E2A;<a href="case/swarm.html">Swarm</a> Manager&#xFF08;TCP&#xFF09;</p>
+<pre><code>docker run -d -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock --name=dockerui03 100.82.23.8/dockerui/dockerui
+docker run -d -p 9000:9000 --privileged --name=dockerui 100.82.23.8/dockerui/dockerui  -e http://10.14.40.112:2376
+</code></pre>
                     
                     </section>
                 
@@ -419,10 +469,6 @@ docker run -v /var/run/docker.sock:/var/run/docker.sock centurylink/dockerfile-f
 
     
     <script src="gitbook/plugins/gitbook-plugin-js-sequence-diagram/plugin.js"></script>
-    
-
-    
-    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

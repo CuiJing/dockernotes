@@ -8,7 +8,7 @@
         <title>配置CentOS | dockernotes</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.2.0">
+        <meta name="generator" content="GitBook 2.1.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Tue Aug 18 2015 09:52:25 GMT+0000 (UTC)">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="Mon Sep 07 2015 13:14:14 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -61,11 +61,11 @@
             
                 
                     <a href="../index.html">
-                
                         <i class="fa fa-check"></i>
                         
                         Introduction
                     </a>
+                
             
             
         </li>
@@ -74,13 +74,13 @@
             
                 
                     <a href="../prepare.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
                         
                         准备
                     </a>
+                
             
             
             <ul class="articles">
@@ -90,13 +90,13 @@
             
                 
                     <a href="../prepare/centeros.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.1.</b>
                         
                         配置CentOS
                     </a>
+                
             
             
         </li>
@@ -105,13 +105,13 @@
             
                 
                     <a href="../prepare/install-boot2docker.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.2.</b>
                         
                         安装Boot2Docker
                     </a>
+                
             
             
         </li>
@@ -120,13 +120,13 @@
             
                 
                     <a href="../prepare/install-docker.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.3.</b>
                         
                         安装Docker
                     </a>
+                
             
             
         </li>
@@ -135,13 +135,28 @@
             
                 
                     <a href="../prepare/install-docker-registry.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>1.4.</b>
                         
                         部署Registry
                     </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="prepare/install-mirror.html">
+            
+                
+                    <a href="../prepare/install-mirror.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        配置加速器
+                    </a>
+                
             
             
         </li>
@@ -155,13 +170,13 @@
             
                 
                     <a href="../image.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>2.</b>
                         
                         镜像
                     </a>
+                
             
             
             <ul class="articles">
@@ -171,13 +186,13 @@
             
                 
                     <a href="../image/cmd.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>2.1.</b>
                         
                         命令
                     </a>
+                
             
             
         </li>
@@ -191,13 +206,13 @@
             
                 
                     <a href="../link.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>3.</b>
                         
                         Link
                     </a>
+                
             
             
         </li>
@@ -206,13 +221,13 @@
             
                 
                     <a href="../faq.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>4.</b>
                         
                         常见问题
                     </a>
+                
             
             
         </li>
@@ -221,13 +236,13 @@
             
                 
                     <a href="../case.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>5.</b>
                         
-                        最佳实践
+                        小记
                     </a>
+                
             
             
             <ul class="articles">
@@ -237,13 +252,43 @@
             
                 
                     <a href="../case/gitbook.html">
-                
                         <i class="fa fa-check"></i>
                         
                             <b>5.1.</b>
                         
                         gitbook
                     </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="case/mesos.html">
+            
+                
+                    <a href="../case/mesos.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        mesos
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="case/swarm.html">
+            
+                
+                    <a href="../case/swarm.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        swarm
+                    </a>
+                
             
             
         </li>
@@ -360,17 +405,25 @@
                     
                         <h1 id="centos">CentOS</h1>
 <h2 id="centos-6-5%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8">CentOS 6.5&#x5347;&#x7EA7;&#x5185;&#x6838;</h2>
-<h3 id="%E5%AE%89%E8%A3%85%E5%86%85%E6%A0%B8%E5%8C%85">&#x5B89;&#x88C5;&#x5185;&#x6838;&#x5305;</h3>
+<pre><code># &#x4E00;&#x952E;&#x5347;&#x7EA7;
+curl -sSL http://docker-library.oss.aliyuncs.com/upgrade_kernel.sh | sh
+</code></pre><hr>
+<p>&#x8BE6;&#x7EC6;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;:</p>
+<h3 id="1-%E5%AE%89%E8%A3%85%E5%86%85%E6%A0%B8%E5%8C%85">1.&#x5B89;&#x88C5;&#x5185;&#x6838;&#x5305;</h3>
 <pre><code>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 rpm -Uvh http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm
 yum --enablerepo=elrepo-kernel install kernel-lt -y
-</code></pre><h3 id="%E4%BF%AE%E6%94%B9grub%E5%BC%95%E5%AF%BC%E9%A1%BA%E5%BA%8F">&#x4FEE;&#x6539;GRUB&#x5F15;&#x5BFC;&#x987A;&#x5E8F;</h3>
+
+&#x6216;
+
+rpm -ivh http://docker-library.oss.aliyuncs.com/kernel-lt-3.10.87-1.el6.elrepo.x86_64.rpm
+</code></pre><h3 id="2-%E4%BF%AE%E6%94%B9grub%E5%BC%95%E5%AF%BC%E9%A1%BA%E5%BA%8F">2.&#x4FEE;&#x6539;GRUB&#x5F15;&#x5BFC;&#x987A;&#x5E8F;</h3>
 <p><a href="https://zh.wikipedia.org/wiki/GNU_GRUB" target="_blank">GRUB</a>&#x53EF;&#x4EE5;&#x5141;&#x8BB8;&#x8BA1;&#x7B97;&#x673A;&#x5728;&#x542F;&#x52A8;&#x65F6;&#x9009;&#x62E9;&#x5E0C;&#x671B;&#x8FD0;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;&#x6253;&#x5F00;&#x6587;&#x4EF6;<code>/boot/grub/grub.conf</code> &#x4FEE;&#x6539;&#x9ED8;&#x8BA4;kernel&#x5E8F;&#x53F7;&#xFF1A;<strong>default=0</strong>&#xFF08;&#x4E00;&#x822C;&#x65B0;&#x5B89;&#x88C5;&#x7684;&#x6392;&#x5728;&#x6700;&#x524D;&#x9762;)</p>
 <ul>
 <li>&#x53C2;&#x8003;<a href="https://zh.wikipedia.org/wiki/GNU_GRUB" target="_blank">Verifying the Boot Loader</a></li>
 </ul>
 <pre><code>sed &apos;s/^default.*/default=0/g&apos; /boot/grub/grub.conf -i
-</code></pre><h3 id="%E9%87%8D%E5%90%AF%E6%9C%BA%E5%99%A8">&#x91CD;&#x542F;&#x673A;&#x5668;</h3>
+</code></pre><h3 id="3-%E9%87%8D%E5%90%AF%E6%9C%BA%E5%99%A8">3.&#x91CD;&#x542F;&#x673A;&#x5668;</h3>
 <p>&#x68C0;&#x67E5;&#x5185;&#x6838;&#x7248;&#x672C;</p>
 <pre><code>[root@iZ28125bfqqZ ~]# uname  -a
 Linux iZ28125bfqqZ 3.10.85-1.el6.elrepo.x86_64 #1 SMP Tue Aug 4 13:23:52 EDT 2015 x86_64 x86_64 x86_64 GNU/Linux
@@ -409,10 +462,6 @@ Linux iZ28125bfqqZ 3.10.85-1.el6.elrepo.x86_64 #1 SMP Tue Aug 4 13:23:52 EDT 201
 
     
     <script src="../gitbook/plugins/gitbook-plugin-js-sequence-diagram/plugin.js"></script>
-    
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

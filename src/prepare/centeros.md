@@ -2,16 +2,29 @@
 
 ## CentOS 6.5升级内核
 
+```
+# 一键升级
+curl -sSL http://docker-library.oss.aliyuncs.com/upgrade_kernel.sh | sh
+```
 
-### 安装内核包
+--------------
+
+详细步骤如下:
+
+### 1.安装内核包
 ```
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 rpm -Uvh http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm
 yum --enablerepo=elrepo-kernel install kernel-lt -y
+
+或
+
+rpm -ivh http://docker-library.oss.aliyuncs.com/kernel-lt-3.10.87-1.el6.elrepo.x86_64.rpm
+
 ```
 
 
-### 修改GRUB引导顺序
+### 2.修改GRUB引导顺序
 [GRUB][1]可以允许计算机在启动时选择希望运行的操作系统。打开文件`/boot/grub/grub.conf` 修改默认kernel序号：**default=0**（一般新安装的排在最前面)
 * 参考[Verifying the Boot Loader][1]
 
@@ -20,7 +33,7 @@ sed 's/^default.*/default=0/g' /boot/grub/grub.conf -i
 ```
 
 
-### 重启机器
+### 3.重启机器
 检查内核版本
 ```
 [root@iZ28125bfqqZ ~]# uname  -a
