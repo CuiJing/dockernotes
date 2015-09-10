@@ -13,4 +13,5 @@
  * [gitbook](case/gitbook.md)
  * [mesos](case/mesos.md)
  * [swarm](case/swarm.md)
+ * [compose](case/compose.md)
 * [关注问题](problems.md)

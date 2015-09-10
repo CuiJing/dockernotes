@@ -1,6 +1,8 @@
 # 重点关注问题
 <!-- toc -->
 
+## Auto-build Service & Image Private Registry
+
 ## Network Configuration
 
 ## Container Migration
@@ -20,5 +22,6 @@
 ## Data Storage
 
  * log
- * localstorage
+
+ * local storage
 
