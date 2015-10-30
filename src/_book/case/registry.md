@@ -10,7 +10,7 @@
 * 我们可以在不同的区域部署多个registry container，底层用同一个OSS bucket。
 
 ```
-docker run -ti -e OSS_HOST=oss.aliyuncs.com -e OSS_BUCKET=rds-registry -e STORAGE_PATH=/main/ -e OSS_KEY=xxx -e OSS_SECRET=xxx -p 5000:5000  registry_alioss
+docker run -ti -e OSS_HOST=oss.aliyuncs.com -e OSS_BUCKET=myregistry -e STORAGE_PATH=/main/ -e OSS_KEY=xxx -e OSS_SECRET=xxx -p 5000:5000  registry_alioss
 ```
 
 
